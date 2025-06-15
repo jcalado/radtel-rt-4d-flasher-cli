@@ -1,0 +1,25 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F4FE2915-74FE-4094-915E-463D4EE232F3}") = "RT-4D-Flasher-CLI", "RT-4D-Flasher-CLI.csproj", "{840633A6-45C2-4E55-9EBB-342DDC02AC93}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{840633A6-45C2-4E55-9EBB-342DDC02AC93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{840633A6-45C2-4E55-9EBB-342DDC02AC93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{840633A6-45C2-4E55-9EBB-342DDC02AC93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{840633A6-45C2-4E55-9EBB-342DDC02AC93}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EB34DD8B-603E-418F-9C30-51733BAFBEDC}
+	EndGlobalSection
+EndGlobal
