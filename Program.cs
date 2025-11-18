@@ -41,9 +41,17 @@ namespace RT_4D_Flasher_CLI {
 					break;
 				}
 
-				byte[] Firmware;
+				// RT4D firmware must be padded to 251,904 bytes for proper reboot
+				const int FW_4D_FLASH_SIZE = 251904;
+				byte[] Firmware = new byte[FW_4D_FLASH_SIZE];
 				try {
-					Firmware = System.IO.File.ReadAllBytes(args[3]);
+					byte[] FileData = System.IO.File.ReadAllBytes(args[3]);
+					if (FileData.Length > FW_4D_FLASH_SIZE) {
+						Console.WriteLine("Firmware file is too large! Maximum size is " + FW_4D_FLASH_SIZE + " bytes.");
+						break;
+					}
+					Array.Copy(FileData, Firmware, FileData.Length);
+					Console.WriteLine("Loaded firmware: " + FileData.Length + " bytes (padded to " + FW_4D_FLASH_SIZE + " bytes)");
 				} catch {
 					Console.WriteLine("Failed to read file!");
 					break;
@@ -102,7 +110,7 @@ namespace RT_4D_Flasher_CLI {
 				try {
 					UInt32 i;
 
-					for (i = 0; i < Firmware.Length; i += 1024) {
+					for (i = 0; i < FW_4D_FLASH_SIZE; i += 1024) {
 						Console.Write("\rFlashing at 0x" + i.ToString("X4"));
 						Console.Out.Flush();
 						if (!RT.Command_WriteFlash(i, Firmware)) {
@@ -111,7 +119,7 @@ namespace RT_4D_Flasher_CLI {
 							break;
 						}
 					}
-					if (i == Firmware.Length) {
+					if (i == FW_4D_FLASH_SIZE) {
 						Console.WriteLine("\rFlashing complete! ");
 					}
 				} catch (Exception Ex) {
