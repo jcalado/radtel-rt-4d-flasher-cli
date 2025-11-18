@@ -101,8 +101,8 @@ public class RT4D_UART {
 		Port.Parity = Parity.None;
 		Port.StopBits = StopBits.One;
 		Port.DataBits = 8;
-		Port.ReadTimeout = 10;
-		Port.WriteTimeout = 10;
+		Port.ReadTimeout = 2000;
+		Port.WriteTimeout = 2000;
 		Port.Open();
 	}
 
